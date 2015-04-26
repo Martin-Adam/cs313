@@ -122,7 +122,13 @@
 		</div>
 		<div class="slide" id="slide2">
 			<div class="content">
-				<h1>Slides too!</h1>
+				<h1>Introduction</h1>
+				<p>My name is Adam Martin. I am married and have a beautiful daughter.
+				<br>If you couldn't tell I like Pokemon.
+				<br>I also like to play a lot with websites and new ideas.
+				<br>I heard that the current trend for websites is these slide
+				<br>pages and so I decided it give it a try.
+				</p>
 			</div>
 		</div>
 	</div>
