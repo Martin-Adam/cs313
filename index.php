@@ -129,6 +129,8 @@
 				<br>I heard that the current trend for websites is these slide
 				<br>pages and so I decided it give it a try.
 				</p>
+				<br>
+				<img src="http://goo.gl/qF6gk3" alt="Pikachu/Link & Ponyta/Epona">
 			</div>
 		</div>
 	</div>
