@@ -80,10 +80,8 @@
 		/* Section 2
 		 * --------------------------------------- */
 		#section1{
-			color: white;
 		}
 		#section1 h1{
-
 		}
 		#section1 p{
 			opacity: 0.8;
