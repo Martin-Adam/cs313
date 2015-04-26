@@ -56,8 +56,13 @@
 		/* Custom CSS
 		 * --------------------------------------- */
 		body{
-			font-family: arial,helvetica;
-			color: #F2F2F2;
+			background-image: url(http://i.imgur.com/48wh8Ab.jpg);
+			color: white;
+			no-repeat center center fixed; 
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
 		}
 		h1{
 			font-size: 6em;
@@ -76,7 +81,6 @@
 		/* Section 2
 		 * --------------------------------------- */
 		#section1{
-			background-image: url(http://i.imgur.com/48wh8Ab.jpg);
 			color: white;
 		}
 		#section1 h1{
