@@ -44,7 +44,6 @@
 		    font-size: 100%;
 		    margin:0;
 		    padding:0;
-		    color:#444;
 		}
 		q:before,q:after {
 		    content:'';
@@ -57,7 +56,7 @@
 		 * --------------------------------------- */
 		body{
 			background-image: url(http://i.imgur.com/48wh8Ab.jpg);
-			color: white;
+			color: black;
 			no-repeat center center fixed; 
 			-webkit-background-size: cover;
 			-moz-background-size: cover;
@@ -84,7 +83,7 @@
 			color: white;
 		}
 		#section1 h1{
-			color: #fff;
+
 		}
 		#section1 p{
 			opacity: 0.8;
