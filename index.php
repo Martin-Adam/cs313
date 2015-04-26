@@ -130,7 +130,7 @@
 				<br>pages and so I decided it give it a try.
 				</p>
 				<br>
-				<img src="http://goo.gl/qF6gk3" alt="Pikachu/Link & Ponyta/Epona">
+				<img src="http://goo.gl/qF6gk3" alt="Pikachu/Link and Ponyta/Epona">
 			</div>
 		</div>
 	</div>
