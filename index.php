@@ -120,6 +120,7 @@
 				<br>
 				<p>The main reason I got this working is thanks to this site:
 				<a href="http://alvarotrigo.com/fullPage/">alvarotrigo.com</a>
+				</form>
 			</div>
 		</div>
 		<div class="slide" id="slide2">
