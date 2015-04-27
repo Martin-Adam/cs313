@@ -76,15 +76,11 @@
 			text-align: center;
 			background-color:rgba(255,255,255,0.3);
 		}
-
-		/* Section 2
-		 * --------------------------------------- */
-		#section1{
-		}
-		#section1 h1{
-		}
 		#section1 p{
 			opacity: 0.8;
+		}
+		img:hover {
+			content: url(http://goo.gl/qF6gk3);
 		}
 	</style>
 </head>
@@ -130,7 +126,8 @@
 				<br>pages and so I decided it give it a try.
 				</p>
 				<br>
-				<img src="http://goo.gl/qF6gk3" alt="Pikachu/Link and Ponyta/Epona">
+				<img src="http://goo.gl/KNC0fV" alt="Pikachu/Link and Ponyta/Epona"
+				style="width: 120px; height: 120px;">
 			</div>
 		</div>
 	</div>
