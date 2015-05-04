@@ -3,7 +3,7 @@
 
 Your name: <?php echo $_POST["name"]; ?>
 <br>
-Your email address is: <?php echo $_POST["email"]; ?>
+Your email address is: <a href="mailto:"<?php $_POST["email"]?>"?Subject=Hello%20again" target="_top"><?php echo $_POST["email"]; ?></a>
 <br>
 <br>
 Major: <?php echo $_POST["major"]; ?>
