@@ -96,6 +96,8 @@
 				<p>Team Activities:
 				<br>
 				<a href="team0/testrun.html">Team Activity 0</a>
+				<br>
+				<a href="team1/demo.html">Team Activity 1</a>
 				</p>
 				<br>
 				<p>Assignments:
