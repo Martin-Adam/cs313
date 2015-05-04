@@ -9,6 +9,7 @@ Your email address is: <a href="mailto:"<?php $_POST["email"]?>"?Subject=Hello%2
 <br>
 Major: <?php echo $_POST["major"]; ?>
 <br>
+<br>
 Visted:
 <br>
 <?php
