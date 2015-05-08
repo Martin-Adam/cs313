@@ -1,0 +1,55 @@
+<?php
+if(isset($_POST['submit'])){
+session_start();
+$_SESSION['poke'] = $_POST['poke'];
+}
+?>
+<!DOCTYPE HTML>
+<html> 
+<head>
+<title>Survey is not a lie</title>
+</head>
+<body>
+
+<form action="formphp.php" method="post">
+<p>
+1. Do you like Pokemon?
+<br>
+<input type="radio" name="poke" value="Yes" checked>Yes
+<br>
+<input type="radio" name="poke" value="No">No
+</p>
+
+<p>
+2. What Pokemon games have you played?
+<br>
+<input type="checkbox" name="pokemon[]" value="Red">Red
+<br>
+<input type="checkbox" name="pokemon[]" value="Blue">Blue
+<br>
+<input type="checkbox" name="pokemon[]" value="Yellow">Yellow
+</p>
+
+<p>
+3. What is the answer to life the universe and everything?
+<br>
+<input type="radio" name="ulti" value="Yes" checked>Yes
+<br>
+<input type="radio" name="ulti" value="42">42
+<br>
+<input type="radio" name="ulti" value="No">No
+</p>
+
+<p>
+4. Do you like #(Hashtags)?
+<br>
+<input type="radio" name="hash" value="Yes" checked>Yes
+<br>
+<input type="radio" name="hash" value="No">No
+</p>
+
+<input type="submit" name="submit" value="submit">
+</form>
+
+</body>
+</html>
