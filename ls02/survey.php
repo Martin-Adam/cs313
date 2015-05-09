@@ -2,7 +2,7 @@
 session_start();
 
 if(isset($_SESSION['pokemon'])){
-
+	$txt = '';
 	if (file_exists ("newfile.txt")){
 		$myfile = fopen("newfile.txt", "r") or die("Unable to open file!");
 		$txt = file_get_contents("newfile.txt");
