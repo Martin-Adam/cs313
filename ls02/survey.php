@@ -267,7 +267,7 @@ else {
 		$txt .= ' Hash: Y '.$num .' N '.$matches[0][9];
 	}
 	else {
-		$num = $matches[0][0] + 1;
+		$num = $matches[0][9] + 1;
 		$txt .= ' Hash: Y '.$matches[0][8].' N '.$num;
 	}
 }
