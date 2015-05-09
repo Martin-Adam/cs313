@@ -104,7 +104,7 @@
 				<br>
 				<a href="helloWorld.html">Hello World</a>
 				<br>
-				<a href="ls02/survey.html">PHP Survey</a>
+				<a href="ls02/survey.php">PHP Survey</a>
 				<br>
 				<a href="ls04/phpDataBase.html">PHP Database Access</a>
 				<br>
