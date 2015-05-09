@@ -89,9 +89,14 @@ if (!isset($_REQUEST['poke'])){
 <input type="submit" name="request" value="request">
 </form>
 <?php } elseif(isset($_POST['request']) && $_POST['request'] == 'request') {
+	if(file_exists ("newfile.txt")){
 	$myfile = fopen("newfile.txt", "r") or die("Unable to open file!");
 	$txt = file_get_contents("newfile.txt");
 	fclose($myfile);
+	}
+	else {
+		$txt = '';
+	}
 	if($txt != ''){
 	$str = $txt;
 	preg_match_all('!\d+!', $str, $matches);
@@ -129,10 +134,16 @@ if (isset($_REQUEST['pokemon'])){
 <br>
 4: <?php echo $_REQUEST["hash"];
 echo '<p>Results:';
-
+if (file_exists ("newfile.txt")){
 $myfile = fopen("newfile.txt", "r") or die("Unable to open file!");
 $txt = file_get_contents("newfile.txt");
 fclose($myfile);
+}else {
+	$myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
+	fwrite($myfile, '');
+	fclose($myfile);
+}
+
 if ($txt == ''){
 	$poke = $_POST["poke"];
 //	Sets results for Poke
