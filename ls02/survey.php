@@ -2,9 +2,16 @@
 session_start();
 
 if(isset($_SESSION['pokemon'])){
-	$myfile = fopen("newfile.txt", "r") or die("Unable to open file!");
-	$txt = file_get_contents("newfile.txt");
-	fclose($myfile);
+
+	if (file_exists ("newfile.txt")){
+		$myfile = fopen("newfile.txt", "r") or die("Unable to open file!");
+		$txt = file_get_contents("newfile.txt");
+		fclose($myfile);
+	}else {
+		$myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
+		fwrite($myfile, $txt);
+		fclose($myfile);
+	}
 	if($txt != ''){
 	$str = $txt;
 	preg_match_all('!\d+!', $str, $matches);
