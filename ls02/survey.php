@@ -1,3 +1,20 @@
+<!DOCTYPE HTML>
+<html> 
+<head>
+<title>Survey is not a lie</title>
+<style>
+body{
+	background-image: url(http://i.imgur.com/48wh8Ab.jpg);
+	color: white;
+	no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	}
+</style>
+</head>
+<body>
 <?php
 session_start();
 
@@ -45,15 +62,7 @@ else {
 $_SESSION["ulti"] = $_POST["ulti"];
 
 $_SESSION["hash"] = $_POST["hash"];
-}
-?>
-<!DOCTYPE HTML>
-<html> 
-<head>
-<title>Survey is not a lie</title>
-</head>
-<body>
-<?php
+} 
 if (!isset($_REQUEST['poke'])){
 ?>
 <form action="" method="post">
