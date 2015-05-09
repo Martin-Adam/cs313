@@ -1,7 +1,7 @@
 <?php
 session_start();
+
 if(isset($_SESSION['pokemon'])){
-	
 	$myfile = fopen("newfile.txt", "r") or die("Unable to open file!");
 	$txt = file_get_contents("newfile.txt");
 	fclose($myfile);
@@ -20,6 +20,7 @@ if(isset($_SESSION['pokemon'])){
 		echo 'Poke: Y 0 N 0 Game: R 0 B 0 Y 0 Ulti: Y 0 F 0 N 0 Hash: Y 0 N 0';
 	}
 	echo '<br><a href="survey.php">Go Back</a>';
+	
 }
 else {
 if(isset($_POST['submit']) && $_POST['submit'] == 'submit'){
@@ -134,13 +135,14 @@ if (isset($_REQUEST['pokemon'])){
 <br>
 4: <?php echo $_REQUEST["hash"];
 echo '<p>Results:';
+$txt = '';
 if (file_exists ("newfile.txt")){
 $myfile = fopen("newfile.txt", "r") or die("Unable to open file!");
 $txt = file_get_contents("newfile.txt");
 fclose($myfile);
 }else {
 	$myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
-	fwrite($myfile, '');
+	fwrite($myfile, $txt);
 	fclose($myfile);
 }
 
