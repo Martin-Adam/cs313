@@ -16,7 +16,10 @@
         $link = new PDO($dsn, $username, $password, $options);
         $statement = $link->query('SELECT * FROM Users');
         $results = $statement->fetchAll(PDO::FETCH_ASSOC);
-        echo $results . "hi";
+        foreach($results as $x => $x_value) {
+            echo "Key=" . $x . ", Value=" . $x_value;
+            echo "<br>";
+        }
     } catch (Exception $ex) {
         echo "Fail".$ex;
     }
