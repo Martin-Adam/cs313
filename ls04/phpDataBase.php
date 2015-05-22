@@ -14,12 +14,14 @@
     
     try {
         $link = new PDO($dsn, $username, $password, $options);
-        $statement = $link->query('SELECT * FROM Users');
-        $results = $statement->fetchAll(PDO::FETCH_ASSOC);
-        foreach($statement as $x_value) {
-            echo "Value=" . $x_value;
-            echo "<br>";
-        }
+        
+        $sql = "SELECT * FROM user_list;";
+        $stmt = $link->prepare($sql);
+        $stmt->execute();
+        $rows = $stmt->rowCount();
+        $stmt->closeCursor();
+        echo $rows;
+        
     } catch (Exception $ex) {
         echo "Fail".$ex;
     }
