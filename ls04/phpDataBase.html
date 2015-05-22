@@ -10,7 +10,7 @@ mysqli_select_db($mysqlCon, getenv('OPENSHIFT_APP_NAME')) or die("Error: " . mys
 $statement = $db->query('SELECT User, Pass FROM Users');
 $results = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-echo $results;
+echo $results. "hi";
 ?>
 
 </body>
