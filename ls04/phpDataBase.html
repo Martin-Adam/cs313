@@ -7,7 +7,7 @@ $mysqlCon = mysqli_connect(getenv('OPENSHIFT_MYSQL_DB_HOST'), getenv('OPENSHIFT_
 getenv('OPENSHIFT_MYSQL_DB_PASSWORD'), "", getenv('OPENSHIFT_MYSQL_DB_PORT')) or die("Error: " . mysqli_error($mysqlCon));
 mysqli_select_db($mysqlCon, getenv('OPENSHIFT_APP_NAME')) or die("Error: " . mysqli_error($mysqlCon));
 
-$statement = $db->query('SELECT User, Pass FROM Users');
+$statement = $mysqlCon->query('SELECT User, Pass FROM Users');
 $results = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 echo $results. "hi";
