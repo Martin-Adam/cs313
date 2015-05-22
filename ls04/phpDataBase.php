@@ -5,7 +5,7 @@
 <?php
     
     $server = getenv('OPENSHIFT_MYSQL_DB_HOST');
-    $dbname = getenv('OPENSHIFT_MYSQL_DB_PORT');
+    $dbname = 'store_db';
     $username = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
     $password = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
     $dsn = 'mysql:host=' . $server . ';dbname=' . $dbname;
@@ -16,7 +16,7 @@
         echo "Fail";
     }
     
-    $statement = $link->query('SELECT User, Pass FROM Users');
+    $statement = $link->query('SELECT * FROM Users');
     $results = $statement->fetchAll(PDO::FETCH_ASSOC);
     
     echo $results. "hi";
