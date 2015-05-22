@@ -3,6 +3,9 @@
 <body>
 
 <?php
+
+    $llama = getenv('OPENSHIFT_APP_NAME');
+    echo "app name: $llama ::: ";
     
     //$server = getenv('OPENSHIFT_MYSQL_DB_HOST');
     $server = getenv('OPENSHIFT_MYSQL_DB_HOST');
