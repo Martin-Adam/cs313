@@ -15,7 +15,7 @@
     try {
         $link = new PDO($dsn, $username, $password, $options);
         
-        $sql = "SELECT * FROM user_list;";
+        $sql = "SELECT * FROM Users;";
         $stmt = $link->prepare($sql);
         $stmt->execute();
         $rows = $stmt->rowCount();
