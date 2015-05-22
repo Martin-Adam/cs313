@@ -17,6 +17,9 @@
         
         $sql = "SELECT * FROM Users;";
         $stmt = $link->prepare($sql);
+        foreach ($link->query($sql) as $row) {
+        print $row;
+        }
         $stmt->execute();
         $rows = $stmt->rowCount();
         $stmt->closeCursor();
