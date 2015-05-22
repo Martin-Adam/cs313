@@ -3,10 +3,6 @@
 <body>
 
 <?php
-
-function loadDatabase()
-{
-
   $dbHost = "";
   $dbPort = "";
   $dbUser = "";
@@ -36,11 +32,6 @@ function loadDatabase()
       $db = new PDO("mysql:host=$dbHost:$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 
      return $db;
-
-}
-
-$db = loadDatabase();
-
 ?>
 
 </body>
