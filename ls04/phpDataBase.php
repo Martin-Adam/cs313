@@ -16,7 +16,7 @@
         $link = new PDO($dsn, $username, $password, $options);
         $statement = $link->query('SELECT * FROM Users');
         $results = $statement->fetchAll(PDO::FETCH_ASSOC);
-        foreach($results as $x_value) {
+        foreach($statement as $x_value) {
             echo "Value=" . $x_value;
             echo "<br>";
         }
