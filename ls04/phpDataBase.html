@@ -3,32 +3,44 @@
 <body>
 
 <?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-     die("Connection failed: " . $conn->connect_error);
-} 
+function loadDatabase()
+{
 
-$sql = "SELECT id, firstname, lastname FROM MyGuests";
-$result = $conn->query($sql);
+  $dbHost = "";
+  $dbPort = "";
+  $dbUser = "";
+  $dbPassword = "";
 
-if ($result->num_rows > 0) {
-     // output data of each row
-     while($row = $result->fetch_assoc()) {
-         echo "<br> id: ". $row["id"]. " - Name: ". $row["firstname"]. " " . $row["lastname"] . "<br>";
+     $dbName = "testdb";
+
+     $openShiftVar = getenv('OPENSHIFT_MYSQL_DB_HOST');
+
+     if ($openShiftVar === null || $openShiftVar == "")
+     {
+          // Not in the openshift environment
+          //echo "Using local credentials: "; 
+          require("setLocalDatabaseCredentials.php");
      }
-} else {
-     echo "0 results";
+     else 
+     { 
+          // In the openshift environment
+          //echo "Using openshift credentials: ";
+
+          $dbHost = getenv('OPENSHIFT_MYSQL_DB_HOST');
+          $dbPort = getenv('OPENSHIFT_MYSQL_DB_PORT'); 
+          $dbUser = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
+          $dbPassword = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
+     } 
+     //echo "host:$dbHost:$dbPort dbName:$dbName user:$dbUser password:$dbPassword<br >\n";
+
+     $db = new PDO("mysql:host=$dbHost:$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+
+     return $db;
+
 }
 
-$conn->close();
-?>  
+?>
 
 </body>
 </html>
