@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html>
-<body style="text-align: center;background-image: url(http://i.imgur.com/48wh8Ab.jpg);">
+    <head>
+        <title>Products</title>
+        <style>
+        body{
+			background-image: url(http://i.imgur.com/48wh8Ab.jpg);
+			color: black;
+			no-repeat center center fixed; 
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+			text-align: center;
+		}
+		table {
+		    background-color:rgba(255,255,255,0.3);
+		}
+        </style>
+    </head>
+<body>
 
 <?php
 
