@@ -31,7 +31,9 @@
             else {
                 $count++;
             }
-            echo '<td><img src="$i[\'image\']" alt="$i[\'name\']" height="150" width="120"><br>$i[\'name\']</td>;
+            echo '<td><img src="' . $i['image'] . '" alt="' . $i['name'] 
+            . '" height="150" width="120"><br>' . $i['name'] . '</td>';
+            
         }
         echo '</tr></table>';
         
