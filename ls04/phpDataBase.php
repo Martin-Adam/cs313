@@ -20,7 +20,9 @@
         $stmt->execute();
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
-        echo $users;
+        foreach($users as $a){
+        echo $a;
+        }
         
     } catch (Exception $ex) {
         echo "Fail".$ex;
