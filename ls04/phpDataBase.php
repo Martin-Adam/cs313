@@ -15,14 +15,25 @@
     try {
         $link = new PDO($dsn, $username, $password, $options);
         
-        $sql = "SELECT * FROM Users;";
+        $sql = "SELECT * FROM Images;";
         $stmt = $link->prepare($sql);
         $stmt->execute();
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
-        foreach($users as $a){
-        echo $a['User'];
+        
+        $count = 1;
+        echo '<table style="width:100%"><tr>';
+        foreach($images as $i){
+            if ($count == 3){
+                $count = 1;
+                echo '</tr><tr>';
+            }
+            else {
+                $count++;
+            }
+            echo '<td><img src="$i[\'image\']" alt="$i[\'name\']" height="150" width="120"><br>$i[\'name\']</td>;
         }
+        echo '</tr></table>';
         
     } catch (Exception $ex) {
         echo "Fail".$ex;
