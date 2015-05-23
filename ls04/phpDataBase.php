@@ -21,7 +21,7 @@
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
         foreach($users as $a){
-        echo $a;
+        echo $a['User'];
         }
         
     } catch (Exception $ex) {
