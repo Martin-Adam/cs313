@@ -40,7 +40,7 @@
         $stmt->closeCursor();
         
         $count = 1;
-        echo '<table style="width:100%"><tr>';
+        echo '<table><tr>';
         foreach($images as $i){
             if ($count == 3){
                 $count = 1;
