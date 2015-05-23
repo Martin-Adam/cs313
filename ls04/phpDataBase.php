@@ -40,7 +40,7 @@
         $stmt->closeCursor();
         
         $count = 1;
-        echo '<table style="text-align:center;"><tr>';
+        echo '<table align="center"><tr>';
         foreach($images as $i){
             if ($count == 3){
                 $count = 1;
