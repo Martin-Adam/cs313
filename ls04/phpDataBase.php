@@ -17,13 +17,10 @@
         
         $sql = "SELECT * FROM Users;";
         $stmt = $link->prepare($sql);
-        foreach ($link->query($sql) as $row) {
-        print $row;
-        }
         $stmt->execute();
-        $rows = $stmt->rowCount();
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
-        echo $rows;
+        echo $users;
         
     } catch (Exception $ex) {
         echo "Fail".$ex;
