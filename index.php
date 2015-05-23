@@ -106,7 +106,7 @@
 				<br>
 				<a href="ls02/survey.php">PHP Survey</a>
 				<br>
-				<a href="ls04/phpDataBase.html">PHP Database Access</a>
+				<a href="ls04/phpDataBase.php">PHP Database Access</a>
 				<br>
 				<a href="ls05/phpDataBase.html">PHP Database Modification</a>
 				<br>
