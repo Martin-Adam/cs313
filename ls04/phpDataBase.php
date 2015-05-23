@@ -18,7 +18,7 @@
         $sql = "SELECT * FROM Images;";
         $stmt = $link->prepare($sql);
         $stmt->execute();
-        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
         
         $count = 1;
