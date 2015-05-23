@@ -50,8 +50,8 @@
                 $count++;
             }
             echo '<td><img src="' . $i['image'] . '" alt="' . $i['name'] 
-            . '" height="150" width="120"><br>' . $i['name'] . '</td>';
-            
+            . '" height="150" width="120"><br>' . $i['name'] 
+            . '<input type="checkbox" name="pokemon" value="'.$i['images_id'].'"></td>';
         }
         echo '</tr></table>';
         
