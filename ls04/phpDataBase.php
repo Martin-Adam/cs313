@@ -39,11 +39,11 @@
         $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
         
-        $count = 1;
+        $count = 0;
         echo '<table align="center"><tr>';
         foreach($images as $i){
             if ($count == 3){
-                $count = 1;
+                $count = 0;
                 echo '</tr><tr>';
             }
             else {
