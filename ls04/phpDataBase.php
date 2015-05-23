@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<body style="text-align: center;">
+<body style="text-align: center;background-image: url(http://i.imgur.com/48wh8Ab.jpg);">
 
 <?php
 
