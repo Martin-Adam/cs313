@@ -39,6 +39,9 @@
         $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
         
+        echo '<p align="right" style="color:white;">UserName Goes Here</p>'
+        . '<h1>Buy your Pulshies here!<h1>';
+        
         $count = 0;
         echo '<table align="center"><tr>';
         foreach($images as $i){
