@@ -40,7 +40,7 @@
         $stmt->closeCursor();
         
         echo '<p align="right" style="color:white;">UserName Goes Here</p>'
-        . '<h1 style="color:white;">Buy your Pulshies here!</h1>';
+        . '<h1 style="color:white;">Buy your Plushies here!</h1>';
         
         $count = 0;
         echo '<table align="center"><tr>';
