@@ -38,7 +38,7 @@
         $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
         
-        echo '<p align="right" style="color:white;">UserName Goes Here</p>'
+        echo '<p align="right" style="color:white;"><a href="signin.php">Sign in</a></p>'
         . '<h1 style="color:white;">Buy your Plushies here!</h1>';
         
         $count = 0;
