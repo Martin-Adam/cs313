@@ -54,7 +54,7 @@
                  echo 'Welcome Back ' . $_SESSION["userl"];
          }
          else if (isset($_POST['user']) && isset($_POST['pass']) && isset($_POST['create'])){
-         	$sql = "INSERT INTO `Users`(`User`, `Pass`) VALUES ('.$_POST['user'].','.$_POST['pass'].');";
+         	$sql = "INSERT INTO `Users`(`User`, `Pass`) VALUES (" . $_POST['user'] . ", " . $_POST['pass'] . ");";
          	$stmt = $link->prepare($sql);
          	$stmt->execute();
          	$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
