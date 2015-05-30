@@ -43,7 +43,9 @@
         echo '<p align="right" style="color:white;">'.$_SESSION['userl'].'</p>';
         	
         }
-        echo '<p align="right" style="color:white;"><a href="signin.php">Sign in</a></p>';
+        else {
+        	echo '<p align="right" style="color:white;"><a href="signin.php">Sign in</a></p>';
+        }
         echo '<h1 style="color:white;">Buy your Plushies here!</h1>';
         
         $count = 0;
