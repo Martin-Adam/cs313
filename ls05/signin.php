@@ -61,7 +61,7 @@
         else if (isset($_POST['user']) && isset($_POST['pass']) && isset($_POST['create'])){
         	$link = new PDO($dsn, $username, $password, $options);
         	
-        	$sql = "INSERT INTO `Users`(`User`, `Pass`) VALUES (':name,:pass');";
+        	$sql = "INSERT INTO `Users`(`User`, `Pass`) VALUES (:name,:pass);";
         	$stmt = $link->prepare($sql);
          	$stmt->bindParam(':name', $_POST['user']);
 		$stmt->bindParam(':pass', $_POST['pass']);
