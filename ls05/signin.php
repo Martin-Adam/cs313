@@ -21,8 +21,11 @@
 <body> 
 <form action="" method="post">
   Username: <input type="text" name="user">
+  <br>
   Password: <input type="text" name="pass">
+  <br>
   <input type="submit" value="Submit" name="submit">
+  <a href="phpDataBase.php">Product Page</a>
 </form>
 <?php
     $server = getenv('OPENSHIFT_MYSQL_DB_HOST');
