@@ -58,7 +58,10 @@
          	$stmt = $link->prepare($sql);
          	$stmt->execute();
          	$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-         	$stmt->closeCursor();
+         	$stmt->closeCursor();         
+         	session_start();
+         	$_SESSION["userl"] = $_POST['user'];
+                echo 'Welcome Back ' . $_SESSION["userl"];
          }
          else {
          	echo 'Wrong Username or Password';
