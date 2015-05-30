@@ -2,14 +2,6 @@
 <html>
     <head>
         <title>Products</title>
-        <script>
-        	function logout(){
-        		<?php
-        		session_unset();
-        		session_destroy();
-        		?>
-        	}
-        </script>
         <style>
         body{
 			background-image: url(http://i.imgur.com/48wh8Ab.jpg);
@@ -76,6 +68,13 @@
         echo "Fail".$ex;
     }
 ?> 
-
+<script>
+function logout(){
+	<?php
+	session_unset();
+	session_destroy();
+	?>
+	}
+</script>
 </body>
 </html>
