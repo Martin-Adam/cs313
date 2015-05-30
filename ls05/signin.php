@@ -53,9 +53,16 @@
          $_SESSION["userl"] = $u['User'];
                  echo 'Welcome Back ' . $_SESSION["userl"];
          }
-         else if (isset($_POST['user']) && isset($_POST['pass']) && isset($_POST['create'])){
-         	$sql = "INSERT INTO `Users`(`User`, `Pass`) VALUES (':name,:pass');";
-         	$stmt = $link->prepare($sql);
+         else {
+         	echo 'Wrong Username or Password';
+         }
+        }
+        }
+        else if (isset($_POST['user']) && isset($_POST['pass']) && isset($_POST['create'])){
+        	$link = new PDO($dsn, $username, $password, $options);
+        	
+        	$sql = "INSERT INTO `Users`(`User`, `Pass`) VALUES (':name,:pass');";
+        	$stmt = $link->prepare($sql);
          	$stmt->bindParam(':name', $_POST['user']);
 		$stmt->bindParam(':pass', $_POST['pass']);
          	$stmt->execute();
@@ -63,11 +70,6 @@
          	session_start();
          	$_SESSION["userl"] = $_POST['user'];
                 echo 'Welcome ' . $_SESSION["userl"];
-         }
-         else {
-         	echo 'Wrong Username or Password';
-         }
-        }
         }
     } catch (Exception $ex) {
         echo "Fail".$ex;
