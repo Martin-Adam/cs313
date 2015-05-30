@@ -48,8 +48,8 @@
         $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
         if(isset($_SESSION["userl"])){
-        echo '<p align="right" style="color:white;">Hello, '.$_SESSION['userl'].'</p>'
-        . '<br><button type="button" onclick="logout()">Logout</button>';
+        echo '<p align="right" style="color:white;">Hello, '.$_SESSION['userl']
+        . '<br><button type="button" onclick="logout()">Logout</button></p>';
         }
         else {
         	echo '<p align="right" style="color:white;"><a href="signin.php">Sign in</a></p>';
