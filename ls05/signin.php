@@ -22,7 +22,7 @@
 <form action="" method="post">
   Username: <input type="text" name="user">
   Password: <input type="text" name="pass">
-
+  <input type="submit" value="Submit" name="submit">
 </form>
 <?php
     $server = getenv('OPENSHIFT_MYSQL_DB_HOST');
