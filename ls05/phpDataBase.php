@@ -44,7 +44,7 @@
         . '<br><button type="button" onclick="logout()">Logout</button></p>';
         }
         else {
-        	echo '<p align="right" style="color:white;"><a href="signin.php">Sign in</a></p>';
+        	echo '<p align="right" style="color:white;"><a href="signin.php">Sign in/Create Account</a></p>';
         }
         echo '<h1 style="color:white;">Buy your Plushies here!</h1>';
         
