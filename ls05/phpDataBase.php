@@ -49,7 +49,7 @@
         $stmt->closeCursor();
         if(isset($_SESSION["userl"])){
         echo '<p align="right" style="color:white;">Hello, '.$_SESSION['userl'].'</p>'
-        . '<br><button type="button" onclick="logout()>Logout</button>"';
+        . '<br><button type="button" onclick="logout()">Logout</button>';
         }
         else {
         	echo '<p align="right" style="color:white;"><a href="signin.php">Sign in</a></p>';
