@@ -34,21 +34,24 @@
     $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
     
     try {
-        if(isset($_POST['user']) && isset($_POST['user'])){
+        if(isset($_POST['user']) && isset($_POST['pass'])){
         $link = new PDO($dsn, $username, $password, $options);
         
-        $sql = "SELECT * FROM Images;";
+        $sql = "SELECT User, Pass FROM Users;";
         $stmt = $link->prepare($sql);
         $stmt->execute();
-        $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
-        
-        echo '<p align="right" style="color:white;"><a href="signin.php">Sign in</a></p>'
-        . '<h1 style="color:white;">Buy your Plushies here!</h1>';
-        
-        $count = 0;
-        echo '<table align="center"><tr>';
-        
+        echo 'Sign in successful!';
+        foreach($users as $u){
+         if($_POST['user'] == $u['User'] && $_POST['pass'] == $u['Pass']){
+         session_start();
+         $_SESSION["userl"] = $u['User'];
+         }
+         else {
+         	echo 'Wrong Username or Password';
+         }
+        }
         }
     } catch (Exception $ex) {
         echo "Fail".$ex;
