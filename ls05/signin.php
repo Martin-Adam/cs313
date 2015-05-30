@@ -42,11 +42,11 @@
         $stmt->execute();
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
-        echo 'Sign in successful!';
         foreach($users as $u){
          if($_POST['user'] == $u['User'] && $_POST['pass'] == $u['Pass']){
          session_start();
          $_SESSION["userl"] = $u['User'];
+                 echo 'Welcome Back ' . $_SESSION["userl"];
          }
          else {
          	echo 'Wrong Username or Password';
