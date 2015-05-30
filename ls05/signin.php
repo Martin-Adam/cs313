@@ -54,13 +54,15 @@
                  echo 'Welcome Back ' . $_SESSION["userl"];
          }
          else if (isset($_POST['user']) && isset($_POST['pass']) && isset($_POST['create'])){
-         	$sql = "INSERT INTO `Users`(`User`, `Pass`) VALUES (" . $_POST['user'] . ", " . $_POST['pass'] . ");";
+         	$sql = "INSERT INTO `Users`(`User`, `Pass`) VALUES (':name,:pass');";
          	$stmt = $link->prepare($sql);
+         	$stmt->bindParam(':name', $_POST['user']);
+		$stmt->bindParam(':pass', $_POST['pass']);
          	$stmt->execute();
          	$stmt->closeCursor();         
          	session_start();
          	$_SESSION["userl"] = $_POST['user'];
-                echo 'Welcome Back ' . $_SESSION["userl"];
+                echo 'Welcome ' . $_SESSION["userl"];
          }
          else {
          	echo 'Wrong Username or Password';
