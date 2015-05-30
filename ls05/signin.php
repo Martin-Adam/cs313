@@ -22,9 +22,11 @@
 <form action="" method="post">
   Username: <input type="text" name="user">
   <br>
-  Password: <input type="text" name="pass">
+  Password: <input type="password" name="pass">
   <br>
   <input type="submit" value="Submit" name="submit">
+  <input type="submit" value="Create User" name="create">
+  <br>
   <a href="phpDataBase.php">Product Page</a>
 </form>
 <?php
@@ -37,7 +39,7 @@
     $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
     
     try {
-        if(isset($_POST['user']) && isset($_POST['pass'])){
+        if(isset($_POST['user']) && isset($_POST['pass']) && isset($_POST['submit'])){
         $link = new PDO($dsn, $username, $password, $options);
         
         $sql = "SELECT User, Pass FROM Users;";
@@ -50,6 +52,13 @@
          session_start();
          $_SESSION["userl"] = $u['User'];
                  echo 'Welcome Back ' . $_SESSION["userl"];
+         }
+         else if (isset($_POST['user']) && isset($_POST['pass']) && isset($_POST['create'])){
+         	$sql = "INSERT INTO `Users`(`User`, `Pass`) VALUES ('.$_POST['user'].','.$_POST['pass'].');";
+         	$stmt = $link->prepare($sql);
+         	$stmt->execute();
+         	$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+         	$stmt->closeCursor();
          }
          else {
          	echo 'Wrong Username or Password';
