@@ -57,7 +57,6 @@
          	$sql = "INSERT INTO `Users`(`User`, `Pass`) VALUES (" . $_POST['user'] . ", " . $_POST['pass'] . ");";
          	$stmt = $link->prepare($sql);
          	$stmt->execute();
-         	$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
          	$stmt->closeCursor();         
          	session_start();
          	$_SESSION["userl"] = $_POST['user'];
