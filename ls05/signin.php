@@ -14,7 +14,7 @@
 			text-align: center;
 		}
 	form {
-	    background-color:rgba(255,255,255,0.3);
+	    background-color:rgba(255,255,255,0.2);
 	}
         </style>
     </head>
@@ -51,10 +51,10 @@
          if($_POST['user'] == $u['User'] && $_POST['pass'] == $u['Pass']){
          session_start();
          $_SESSION["userl"] = $u['User'];
-                 echo 'Welcome Back ' . $_SESSION["userl"];
+                 echo '<p style="color:white;">Welcome Back ' . $_SESSION["userl"] . '</p>';
          }
          else {
-         	echo 'Wrong Username or Password';
+         	echo '<p style="color:white;">Wrong Username or Password</p>';
          }
         }
         }
@@ -69,10 +69,10 @@
          	$stmt->closeCursor();         
          	session_start();
          	$_SESSION["userl"] = $_POST['user'];
-                echo 'Welcome ' . $_SESSION["userl"];
+                echo '<p style="color:white;">Welcome ' . $_SESSION["userl"] . "</p>";
         }
     } catch (Exception $ex) {
-        echo "Fail".$ex;
+        echo '<p style="color:white;">Couldnt connect to Database try again later</p>';
     }
 ?> 
 </body>
