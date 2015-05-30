@@ -21,6 +21,8 @@
 <body> 
 
 <?php
+    session_start();
+
     $server = getenv('OPENSHIFT_MYSQL_DB_HOST');
     $dbname = 'store_db';
     $username = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
@@ -37,9 +39,12 @@
         $stmt->execute();
         $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
-        
-        echo '<p align="right" style="color:white;"><a href="signin.php">Sign in</a></p>'
-        . '<h1 style="color:white;">Buy your Plushies here!</h1>';
+        if(isset($_SESSION["userl"])){
+        echo '<p align="right" style="color:white;">'.$_SESSION['userl'].'</p>';
+        	
+        }
+        echo '<p align="right" style="color:white;"><a href="signin.php">Sign in</a></p>';
+        echo '<h1 style="color:white;">Buy your Plushies here!</h1>';
         
         $count = 0;
         echo '<table align="center"><tr>';
