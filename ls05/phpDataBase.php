@@ -36,9 +36,9 @@
         if(isset($_SESSION["userl"])){
         	$sql = 'SELECT Images.* '
         	.'FROM Images '
-        	.'inner join Bought_items '
-        	.'inner join Users on Users.User_ID = Bought_items.User_ID '
-        	. 'where  Bought_items.images_id != Images.images_id AND Bought_items.User_ID = :id;';
+        	. 'INNER JOIN Bought_items '
+        	. 'INNER JOIN Users ON Users.User_ID = Bought_items.User_ID '
+        	. 'WHERE  Bought_items.images_id != Images.images_id AND Bought_items.User_ID = 2;';
         	$stmt = $link->prepare($sql);
         	$stmt->bindParam(':id', $_SESSION["userid"]);
         	$stmt->execute();
