@@ -50,9 +50,12 @@
         $stmt->closeCursor();
         foreach($users as $u){
          if($_POST['user'] == $u['User'] && $_POST['pass'] == $u['Pass']){
+         
          session_start();
          $_SESSION["userl"] = $u['User'];
-                 echo '<p style="color:white;">Welcome Back ' . $_SESSION["userl"] . '</p>';
+         $_SESSION["userid"] = $u['User_ID'];
+         
+         echo '<p style="color:white;">Welcome Back ' . $_SESSION["userl"] . '</p>';
          }
          else {
          	echo '<p style="color:white;">Wrong Username or Password</p>';
