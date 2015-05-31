@@ -38,7 +38,7 @@
         	.'FROM Images '
         	. 'INNER JOIN Bought_items '
         	. 'INNER JOIN Users ON Users.User_ID = Bought_items.User_ID '
-        	. 'WHERE  Bought_items.images_id != Images.images_id AND Bought_items.User_ID = 2;';
+        	. 'WHERE  Bought_items.images_id != Images.images_id AND Bought_items.User_ID = :id;';
         	$stmt = $link->prepare($sql);
         	$stmt->bindParam(':id', $_SESSION["userid"]);
         	$stmt->execute();
