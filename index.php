@@ -108,9 +108,9 @@
 				<br>
 				<a href="ls04/phpDataBase.php">PHP Database Access</a>
 				<br>
-				<a href="ls05/phpDataBase.html">PHP Database Modification</a>
+				<a href="ls05/phpDataBase.php">PHP Database Modification</a>
 				<br>
-				<a href="ls06/phpDataBase.html">Individual PHP Project</a>
+				<a href="ls06/phpDataBase.php">Individual PHP Project</a>
 				</p>
 				<br>
 				<p>The main reason I got this working is thanks to this site:
