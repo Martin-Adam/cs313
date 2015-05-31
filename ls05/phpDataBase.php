@@ -56,25 +56,6 @@
         	$stmt->closeCursor();
         	echo '<p align="right" style="color:white;"><a href="signin.php">Sign in/Create Account</a></p>';
         }
-        if(isset($_POST["submit"]) && isset($_SESSION["userl"])){
-        $pokemon = $_POST['pokemon']; 
-        if(!empty($pokemon)){
-		$n = count($pokemon);
-        	for($i=0; $i < $n; $i++)
-        	{
-        		//$sql = "SELECT * FROM Images;";
-	        //	$stmt = $link->prepare($sql);
-        	//	$stmt->execute();
-        	 //      	$stmt->closeCursor();
-
-        		echo($pokemon[$i] . " ");
-        	}
-        }	
-        
-        }
-        else if (isset($_POST["submit"])){
-        	echo 'Items will arrive close to never.';
-        }
         echo '<h1 style="color:white;">Buy your Plushies here!</h1>';
         
         $count = 0;
@@ -92,7 +73,27 @@
             . '<input type="checkbox" name="pokemon[]" value="'.$i['images_id'].'"></td>';
         }
         echo '</tr><tr><td><input type="submit" name="submit" value="Submit"></td></tr></table></form>';
+        if(isset($_POST["submit"]) && isset($_SESSION["userl"])){
+        $pokemon = $_POST['pokemon']; 
+        if(!empty($pokemon)){
+		$n = count($pokemon);
+        	for($i=0; $i < $n; $i++)
+        	{
+        		$sql = "INSERT INTO `Bought_items`(`images_id`, `User_ID`, `Price`) VALUES (:pid,:id);";
+	        	$stmt = $link->prepare($sql);
+	        	$stmt->bindParam(':pid', $pokemon[$i]);
+	        	$stmt->bindParam(':id', $_SESSION["userid"]);
+        		$stmt->execute();
+        	       	$stmt->closeCursor();
+
+        		echo($pokemon[$i] . " ");
+        	}
+        }	
         
+        }
+        else if (isset($_POST["submit"])){
+        	echo '<p style="color:white;">Items will arrive close to never.</p>';
+        }
     } catch (Exception $ex) {
         echo "Fail".$ex;
     }
