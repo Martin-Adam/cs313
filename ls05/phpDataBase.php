@@ -33,17 +33,22 @@
     
     try {
         $link = new PDO($dsn, $username, $password, $options);
-        
-        $sql = "SELECT * FROM Images;";
-        $stmt = $link->prepare($sql);
-        $stmt->execute();
-        $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $stmt->closeCursor();
         if(isset($_SESSION["userl"])){
-        echo '<p align="right" style="color:white;">Hello, '.$_SESSION['userl']
-        . '<br><button type="button" onclick="logout()">Logout</button></p>';
+        	$sql = "SELECT a.* FROM Images a NATURAL LEFT JOIN Bought_items b WHERE b.images_id IS NULL;";
+        	$stmt = $link->prepare($sql);
+        	$stmt->execute();
+        	$images = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        	$stmt->closeCursor();
+
+        	echo '<p align="right" style="color:white;">Hello, '.$_SESSION['userl']
+        	. '<br><button type="button" onclick="logout()">Logout</button></p>';
         }
         else {
+        	$sql = "SELECT * FROM Images;";
+        	$stmt = $link->prepare($sql);
+        	$stmt->execute();
+        	$images = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        	$stmt->closeCursor();
         	echo '<p align="right" style="color:white;"><a href="signin.php">Sign in/Create Account</a></p>';
         }
         echo '<h1 style="color:white;">Buy your Plushies here!</h1>';
