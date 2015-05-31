@@ -57,7 +57,7 @@
          
          echo '<p style="color:white;">Welcome Back ' . $_SESSION["userl"] . '</p>';
          }
-         else {
+         else if(!isset($_POST['user']) && !isset($_POST['pass']) && isset($_POST['submit'])) {
          	echo '<p style="color:white;">Wrong Username or Password</p>';
          }
         }
