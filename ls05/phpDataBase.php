@@ -91,7 +91,7 @@
             . '" height="150" width="120"><br>' . $i['name'] 
             . '<input type="checkbox" name="pokemon[]" value="'.$i['images_id'].'"></td>';
         }
-        echo '<td><input type="submit" name="submit" value="Submit">/td></tr></table></form>';
+        echo '</tr><tr><td><input type="submit" name="submit" value="Submit"></td></tr></table></form>';
         
     } catch (Exception $ex) {
         echo "Fail".$ex;
