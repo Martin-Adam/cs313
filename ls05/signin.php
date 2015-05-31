@@ -20,9 +20,9 @@
     </head>
 <body> 
 <form action="" method="post">
-  Username: <input type="text" name="user">
+  Username: <input type="text" name="user" size="12">
   <br>
-  Password: <input type="password" name="pass">
+  Password: <input type="password" name="pass" size="12">
   <br>
   <input type="submit" value="Submit" name="submit">
   <input type="submit" value="Create User" name="create">
