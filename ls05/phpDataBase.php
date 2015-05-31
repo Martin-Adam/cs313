@@ -34,9 +34,9 @@
     try {
         $link = new PDO($dsn, $username, $password, $options);
         if(isset($_SESSION["userl"])){
-        	$sql = 'SELECT Images.* from Images inner join Bought_items inner join Users on Users.User_ID = Bought_items.User_ID where  Bought_items.images_id != Images.images_id AND Bought_items.User_ID = '.$_SESSION["userl"].';';
+        	$sql = 'SELECT Images.* from Images inner join Bought_items inner join Users on Users.User_ID = Bought_items.User_ID where  Bought_items.images_id != Images.images_id AND Bought_items.User_ID = :name;';
         	$stmt = $link->prepare($sql);
-        	//$stmt->bindParam(':name', $_SESSION["userl"]);
+        	$stmt->bindParam(':name', $_SESSION["userid"]);
         	$stmt->execute();
         	$images = $stmt->fetchAll(PDO::FETCH_ASSOC);
         	$stmt->closeCursor();
