@@ -54,7 +54,7 @@
          session_start();
          $_SESSION["userl"] = $u['User'];
          $_SESSION["userid"] = $u['User_ID'];
-         
+         echo $_SESSION["userid"];
          echo '<p style="color:white;">Welcome Back ' . $_SESSION["userl"] . '</p>';
          }
          else if(!isset($_POST['user']) && !isset($_POST['pass']) && isset($_POST['submit'])) {
