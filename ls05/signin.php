@@ -21,9 +21,9 @@
 <body> 
 <form action="" method="post">
   Data can only be 12 characters long:<br>
-  Username: <input type="text" name="user" size="12">
+  Username: <input type="text" name="user" maxlength="12">
   <br>
-  Password: <input type="password" name="pass" size="12">
+  Password: <input type="password" name="pass" maxlength="12">
   <br>
   <input type="submit" value="Submit" name="submit">
   <input type="submit" value="Create User" name="create">
