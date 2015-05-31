@@ -20,6 +20,7 @@
     </head>
 <body> 
 <form action="" method="post">
+  Data can only be 12 characters long:<br>
   Username: <input type="text" name="user" size="12">
   <br>
   Password: <input type="password" name="pass" size="12">
