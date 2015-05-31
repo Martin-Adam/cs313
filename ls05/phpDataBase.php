@@ -72,7 +72,7 @@
             . '" height="150" width="120"><br>' . $i['name'] 
             . '<input type="checkbox" name="pokemon[]" value="'.$i['images_id'].'"></td>';
         }
-        echo '</tr><tr><td><input type="submit" name="submit" value="Submit"></td></tr></table></form>';
+        echo '</tr><tr><td><input type="submit" name="submit" value="Buy Now"></td></tr></table></form>';
         if(isset($_POST["submit"]) && isset($_SESSION["userl"])){
         $pokemon = $_POST['pokemon']; 
         if(!empty($pokemon)){
