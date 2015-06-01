@@ -20,6 +20,7 @@
     </head>
 <body> 
 <?php
+session_start();
 if(!isset($_SESSION["userl"])){
 ?>
 <form action="" method="post">
@@ -57,7 +58,6 @@ if(!isset($_SESSION["userl"])){
         foreach($users as $u){
          if($_POST['user'] == $u['User'] && $_POST['pass'] == $u['Pass']){
          
-	         session_start();
          	$_SESSION["userl"] = $u['User'];
          	$_SESSION["userid"] = $u['User_ID'];
 
@@ -79,7 +79,6 @@ if(!isset($_SESSION["userl"])){
 		$stmt->bindParam(':pass', $_POST['pass']);
          	$stmt->execute();
          	$stmt->closeCursor();         
-         	session_start();
          	$_SESSION["userl"] = $_POST['user'];
                 echo '<p style="color:white;">Welcome ' . $_SESSION["userl"] . "</p>";
         }
