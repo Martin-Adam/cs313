@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Products</title>
+        <title>Sign In</title>
         <style>
         body{
 			background-image: url(http://i.imgur.com/48wh8Ab.jpg);
@@ -60,11 +60,11 @@ if(!isset($_SESSION["userl"])){
          
          	$_SESSION["userl"] = $u['User'];
          	$_SESSION["userid"] = $u['User_ID'];
-		$_SESSION["num"] = 0;
+		$_SESSION["num"] = 1;
          	$message ='<p style="color:white;">Welcome Back ' . $_SESSION["userl"] . '</p>';
          	break;
          }
-         else if($_POST['user'] != $u['User'] && $_POST['pass'] != $u['Pass']) {
+         else if($_POST['user'] != $u['User'] || $_POST['pass'] != $u['Pass']) {
          	$message = '<p style="color:white;">Wrong Username or Password</p>';
          }
         }
@@ -94,14 +94,16 @@ if(!isset($_SESSION["userl"])){
         	        foreach($users as $u){
         	        	if($_SESSION['userl'] == $u['User']){
         	        		$_SESSION["userid"] = $u['User_ID'];
-        	        		$_SESSION["num"] = 0;
+        	        		$_SESSION["num"] = 1;
         	        		break;
         	        	}
         	        }
         }
-        if ($_SESSION["num"] == 0){
-        	$_SESSION["num"] += 1;
-        	echo '<script> location.reload(); </script>';
+        if(isset($_SESSION["num"])){
+        	if ($_SESSION["num"] == 1){
+        		$_SESSION["num"] = $_SESSION["num"] + 1;
+        		echo '<script> location.reload(); </script>';
+        	}
         }
     } catch (Exception $ex) {
         echo '<p style="color:white;">Couldnt connect to Database try again later</p>';
