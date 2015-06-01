@@ -19,6 +19,9 @@
         </style>
     </head>
 <body> 
+<?php
+if(!isset($_SESSION["userl"])){
+?>
 <form action="" method="post">
   Data can only be 12 characters long:<br>
   Username: <input type="text" name="user" maxlength="12">
@@ -28,6 +31,7 @@
   <input type="submit" value="Submit" name="submit">
   <input type="submit" value="Create User" name="create">
   <br>
+<?php } ?>  
   <a href="phpDataBase.php">Product Page</a>
 </form>
 <?php
