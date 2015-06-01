@@ -96,20 +96,15 @@ if(!isset($_SESSION["userl"])){
         	        		break;
         	        	}
         	        }
-        	        echo '<script type="text/javascript"> reload(); </script>';
+        	        echo '<script> location.reload(); </script>';
         }
         else if (isset($_SESSION["userl"]) && isset($_SESSION["userid"]) 
         	&& (isset($_POST['submit']) || isset($_POST['create']))){
-        	echo '<script type="text/javascript"> reload(); </script>';
+        	echo '<script> location.reload(); </script>';
         }
     } catch (Exception $ex) {
         echo '<p style="color:white;">Couldnt connect to Database try again later</p>';
     }
 ?>
-<script>
-function reload(){
-	location.reload();
-}
-</script>
 </body>
 </html>
