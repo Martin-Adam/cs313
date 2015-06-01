@@ -100,6 +100,7 @@
 ?> 
 <script>
 function logout(){
+	alert('hi');
 	<?php
 	session_unset();
 	session_destroy();
