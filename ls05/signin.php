@@ -82,9 +82,34 @@ if(!isset($_SESSION["userl"])){
          	$_SESSION["userl"] = $_POST['user'];
                 echo '<p style="color:white;">Welcome ' . $_SESSION["userl"] . "</p>";
         }
+        
+        if(isset($_SESSION["userl"]) && !isset($_SESSION["userid"])){
+        	        $link = new PDO($dsn, $username, $password, $options);
+        	        $sql = "SELECT * FROM Users;";
+        	        $stmt = $link->prepare($sql);
+        	        $stmt->execute();
+        	        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        	        $stmt->closeCursor();
+        	        foreach($users as $u){
+        	        	if($_SESSION['userl'] == $u['User']){
+        	        		$_SESSION["userid"] = $u['User_ID'];
+        	        		break;
+        	        	}
+        	        }
+        	        echo '<script type="text/javascript"> reload(); </script>';
+        }
+        else if (isset($_SESSION["userl"]) && isset($_SESSION["userid"]) 
+        	&& (isset($_POST['submit']) || isset($_POST['create'])){
+        	echo '<script type="text/javascript"> reload(); </script>';
+        }
     } catch (Exception $ex) {
         echo '<p style="color:white;">Couldnt connect to Database try again later</p>';
     }
-?> 
+?>
+<script>
+function reload(){
+	location.reload();
+}
+</script>
 </body>
 </html>
