@@ -58,6 +58,7 @@
          	$_SESSION["userid"] = $u['User_ID'];
 
          	$message ='<p style="color:white;">Welcome Back ' . $_SESSION["userl"] . '</p>';
+         	break;
          }
          else if($_POST['user'] != $u['User'] && $_POST['pass'] != $u['Pass']) {
          	$message = '<p style="color:white;">Wrong Username or Password</p>';
