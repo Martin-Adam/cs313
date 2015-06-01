@@ -60,7 +60,7 @@ if(!isset($_SESSION["userl"])){
          
          	$_SESSION["userl"] = $u['User'];
          	$_SESSION["userid"] = $u['User_ID'];
-
+		$_SESSION["num"] = 0;
          	$message ='<p style="color:white;">Welcome Back ' . $_SESSION["userl"] . '</p>';
          	break;
          }
@@ -95,14 +95,12 @@ if(!isset($_SESSION["userl"])){
         	        foreach($users as $u){
         	        	if($_SESSION['userl'] == $u['User']){
         	        		$_SESSION["userid"] = $u['User_ID'];
+        	        		$_SESSION["num"] = 0;
         	        		break;
         	        	}
         	        }
-        	        echo '<script> location.reload(); </script>';
         }
-        else if (isset($_SESSION["userl"]) && isset($_SESSION["userid"]) 
-        	&& (isset($_POST['submit']) || isset($_POST['create']))
-        	&& $_SESSION["num"] == 0){
+        if ($_SESSION["num"] == 0){
         	$_SESSION["num"] += 1;
         	echo '<script> location.reload(); </script>';
         }
