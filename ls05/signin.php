@@ -80,6 +80,8 @@ if(!isset($_SESSION["userl"])){
          	$stmt->execute();
          	$stmt->closeCursor();         
          	$_SESSION["userl"] = $_POST['user'];
+        	$_SESSION["num"] = 0;
+
                 echo '<p style="color:white;">Welcome ' . $_SESSION["userl"] . "</p>";
         }
         
@@ -99,7 +101,9 @@ if(!isset($_SESSION["userl"])){
         	        echo '<script> location.reload(); </script>';
         }
         else if (isset($_SESSION["userl"]) && isset($_SESSION["userid"]) 
-        	&& (isset($_POST['submit']) || isset($_POST['create']))){
+        	&& (isset($_POST['submit']) || isset($_POST['create']))
+        	&& $_SESSION["num"] == 0){
+        	$_SESSION["num"] += 1;
         	echo '<script> location.reload(); </script>';
         }
     } catch (Exception $ex) {
