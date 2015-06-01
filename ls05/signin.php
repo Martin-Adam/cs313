@@ -45,7 +45,7 @@ if(!isset($_SESSION["userl"])){
     $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
     
     try {
-        if(isset($_POST['user']) && isset($_POST['pass']) && isset($_POST['submit'])){
+        if(isset($_POST['user']) && isset($_POST['pass']) && isset($_POST['submit']) && !isset($_SESSION["num"])){
         $link = new PDO($dsn, $username, $password, $options);
         
         $sql = "SELECT * FROM Users;";
@@ -70,7 +70,7 @@ if(!isset($_SESSION["userl"])){
         }
         echo $message;
         }
-        else if (isset($_POST['user']) && isset($_POST['pass']) && isset($_POST['create'])){
+        else if (isset($_POST['user']) && isset($_POST['pass']) && isset($_POST['create']) && !isset($_SESSION["num"])){
         	$link = new PDO($dsn, $username, $password, $options);
         	
         	$sql = "INSERT INTO `Users`(`User`, `Pass`) VALUES (:name,:pass);";
@@ -80,12 +80,11 @@ if(!isset($_SESSION["userl"])){
          	$stmt->execute();
          	$stmt->closeCursor();         
          	$_SESSION["userl"] = $_POST['user'];
-        	$_SESSION["num"] = 0;
 
                 echo '<p style="color:white;">Welcome ' . $_SESSION["userl"] . "</p>";
         }
         
-        if(isset($_SESSION["userl"]) && !isset($_SESSION["userid"])){
+        if(isset($_SESSION["userl"]) && !isset($_SESSION["userid"]) && !isset($_SESSION["num"])){
         	        $link = new PDO($dsn, $username, $password, $options);
         	        $sql = "SELECT * FROM Users;";
         	        $stmt = $link->prepare($sql);
