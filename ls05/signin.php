@@ -48,19 +48,22 @@
         $stmt->execute();
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
+        
+        $message = "";
         foreach($users as $u){
          if($_POST['user'] == $u['User'] && $_POST['pass'] == $u['Pass']){
          
-         session_start();
-         $_SESSION["userl"] = $u['User'];
-         $_SESSION["userid"] = $u['User_ID'];
+	         session_start();
+         	$_SESSION["userl"] = $u['User'];
+         	$_SESSION["userid"] = $u['User_ID'];
 
-         echo '<p style="color:white;">Welcome Back ' . $_SESSION["userl"] . '</p>';
+         	$message ='<p style="color:white;">Welcome Back ' . $_SESSION["userl"] . '</p>';
          }
-         else if(!isset($_POST['user']) && !isset($_POST['pass']) && isset($_POST['submit'])) {
-         	echo '<p style="color:white;">Wrong Username or Password</p>';
+         else if($_POST['user'] != $u['User'] && $_POST['pass'] != $u['Pass']) {
+         	$message = '<p style="color:white;">Wrong Username or Password</p>';
          }
         }
+        echo $message;
         }
         else if (isset($_POST['user']) && isset($_POST['pass']) && isset($_POST['create'])){
         	$link = new PDO($dsn, $username, $password, $options);
