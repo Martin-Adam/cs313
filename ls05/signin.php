@@ -99,7 +99,7 @@ if(!isset($_SESSION["userl"])){
         	        echo '<script type="text/javascript"> reload(); </script>';
         }
         else if (isset($_SESSION["userl"]) && isset($_SESSION["userid"]) 
-        	&& (isset($_POST['submit']) || isset($_POST['create'])){
+        	&& (isset($_POST['submit']) || isset($_POST['create']))){
         	echo '<script type="text/javascript"> reload(); </script>';
         }
     } catch (Exception $ex) {
