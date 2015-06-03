@@ -33,14 +33,9 @@ if(isset($_POST['submit'])){
 	$pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 
 	$query = $db->query('SELECT User FROM Users WHERE User = "' . $_POST['user']. '";');
-
-  	if($query)
-	{
-    		echo 'it exists';
-  	}
-	else{
-		echo 'it doesnt exist';
-	}
+	$rows_found = $db->rowCount();
+	
+	echo $rows_found;
 	}
 	catch (PDOException $e){
 		echo $e;
