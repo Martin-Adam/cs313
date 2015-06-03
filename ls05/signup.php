@@ -73,7 +73,7 @@ if(isset($_POST['submit'])){
 	
 	$message = "";
 	foreach($users as $u){
-		if($u['user'] == $_POST['user'])
+		if($u['User'] == $_POST['user'])
 		{
 			$message = 'Username is taken.';
 		}
