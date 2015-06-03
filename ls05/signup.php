@@ -38,6 +38,10 @@ session_start();
 	a:active {
     		color: green;
 	}
+	a{
+		padding: 120px;
+		margin: 42px;
+	}
 </style>
 </head>
 <body>
