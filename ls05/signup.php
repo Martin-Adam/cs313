@@ -32,7 +32,6 @@ Password:<input type="password" name="pass">
 </form>
 
 <?php
-echo 'bye';
 if(isset($_POST['submit'])){
 	try {
 	$server = getenv('OPENSHIFT_MYSQL_DB_HOST');
