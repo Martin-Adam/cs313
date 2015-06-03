@@ -39,8 +39,7 @@ session_start();
     		color: green;
 	}
 	a{
-		padding: 120px;
-		margin: 42px;
+		padding: 10px;
 	}
 </style>
 </head>
