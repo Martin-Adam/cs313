@@ -34,11 +34,13 @@ if(isset($_POST['submit'])){
 
 	$db->prepare('SELECT User FROM Users WHERE User = "' . $_POST['user']. '";');
 	$db->execute();
-       	$db->closeCursor();         
+	$db->setFetchMode(PDO::FETCH_ASSOC);
+
+       	
 
 	$rows_found = $db->rowCount();
 	
-	
+	$db->closeCursor();         
 	$pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 
 	echo $rows_found;
