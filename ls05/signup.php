@@ -30,15 +30,24 @@ if(isset($_POST['submit'])){
 	
         $link = new PDO($dsn, $username, $password, $options);
 
-	$sql = 'SELECT User FROM Users WHERE User = "'.$_POST['user'].'"';
+	$sql = 'SELECT User FROM Users';
         $stmt = $link->prepare($sql);
         $stmt->execute();
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
-
+	
+	$message = "";
 	foreach($users as $u){
-		echo 'hello world';
+		if($u['user'] == $_POST['user'])
+		{
+			$message = 'Username is taken.';
+		}
 	}
+	
+	if($message == ""){
+		header('Location: signin.php');
+	}
+	
 	}
 	catch (PDOException $e){
 		echo $e;
