@@ -22,6 +22,22 @@ session_start();
 	h1 {
 		color:white;
 	}
+	/* unvisited link */
+	a:link {
+    		color: #white;
+	}
+	/* visited link */
+	a:visited {
+    		color: #blue;
+	}
+	/* mouse over link */
+	a:hover {
+    		color: #red;
+	}
+	/* selected link */
+	a:active {
+    		color: #green;
+	}
 </style>
 </head>
 <body>
