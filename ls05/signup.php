@@ -19,6 +19,9 @@ session_start();
 	form {
 	    background-color:rgba(255,255,255,0.2);
 	}
+	h1 {
+		color:white;
+	}
 </style>
 </head>
 <body>
