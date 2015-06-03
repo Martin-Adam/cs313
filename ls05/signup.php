@@ -28,13 +28,19 @@ if(isset($_POST['submit'])){
 	$password = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
 	$dsn = 'mysql:host=' . $server . ';dbname=' . $dbname;
 	$options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+	
 	$db = new PDO($dsn, $username, $password, $options);
 
-	$pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 
-	$query = $db->query('SELECT User FROM Users WHERE User = "' . $_POST['user']. '";');
+	$db->prepare('SELECT User FROM Users WHERE User = "' . $_POST['user']. '";');
+	$db->execute();
+       	$db->closeCursor();         
+
 	$rows_found = $db->rowCount();
 	
+	
+	$pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+
 	echo $rows_found;
 	}
 	catch (PDOException $e){
