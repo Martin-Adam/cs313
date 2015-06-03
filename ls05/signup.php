@@ -27,6 +27,8 @@ session_start();
 <body>
 <h1>Sign Up</h1>
 <form action="" method="post">
+<a href="phpDataBase.php">Product Page</a>
+<br>
 Username: <input type="text" name="user">
 <br>
 Password:<input type="password" name="pass">
