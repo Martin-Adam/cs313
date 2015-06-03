@@ -45,6 +45,14 @@ if(isset($_POST['submit'])){
 	}
 	
 	if($message == ""){
+		$sql = "INSERT INTO `Users`(`User`, `Pass`) VALUES (:name,:pass)";
+		$stmt->bindParam(':name', $_POST['user']);
+		$stmt->bindParam(':pass', $_POST['pass']);
+        	$stmt = $link->prepare($sql);
+        	$stmt->execute();
+        	$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        	$stmt->closeCursor();
+        	
 		header('Location: signin.php');
 	}
 	
