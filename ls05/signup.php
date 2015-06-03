@@ -29,10 +29,10 @@ if(isset($_POST['submit'])){
 	$dsn = 'mysql:host=' . $server . ';dbname=' . $dbname;
 	$options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 	
-	$db = new PDO($dsn, $username, $password, $options);
+	$link = new PDO($dsn, $username, $password, $options);
 
 
-	$db->prepare('SELECT User FROM Users WHERE User = "' . $_POST['user']. '";');
+	$db = $link->prepare('SELECT User FROM Users WHERE User = "' . $_POST['user']. '";');
 	$db->execute();
 	$db->setFetchMode(PDO::FETCH_ASSOC);
 
