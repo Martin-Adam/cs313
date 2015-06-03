@@ -45,7 +45,9 @@ if(isset($_POST['submit'])){
 	}
 	
 	if($message == ""){
+		$link = new PDO($dsn, $username, $password, $options);
 		$sql = "INSERT INTO `Users`(`User`, `Pass`) VALUES (:name,:pass)";
+		$stmt = $link->prepare($sql);
 		$stmt->bindParam(':name', $_POST['user']);
 		$stmt->bindParam(':pass', $_POST['pass']);
         	$stmt = $link->prepare($sql);
