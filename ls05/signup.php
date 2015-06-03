@@ -24,19 +24,19 @@ session_start();
 	}
 	/* unvisited link */
 	a:link {
-    		color: #white;
+    		color: white;
 	}
 	/* visited link */
 	a:visited {
-    		color: #blue;
+    		color: blue;
 	}
 	/* mouse over link */
 	a:hover {
-    		color: #red;
+    		color: red;
 	}
 	/* selected link */
 	a:active {
-    		color: #green;
+    		color: green;
 	}
 </style>
 </head>
