@@ -5,6 +5,21 @@ session_start();
 <html>
 <head>
 <title>Results</title>
+<style>
+        body{
+			background-image: url(http://i.imgur.com/48wh8Ab.jpg);
+			color: black;
+			no-repeat center center fixed; 
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+			text-align: center;
+		}
+	form {
+	    background-color:rgba(255,255,255,0.2);
+	}
+</style>
 </head>
 <body>
 <h1>Sign Up</h1>
