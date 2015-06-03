@@ -19,31 +19,26 @@ Password:<input type="password" name="pass">
 <?php
 echo 'bye';
 if(isset($_POST['submit'])){
-	echo 'hi';
-	try{
-	echo 'test';
+	try {
 	$server = getenv('OPENSHIFT_MYSQL_DB_HOST');
 	$dbname = 'store_db';
 	$username = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
 	$password = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
 	$dsn = 'mysql:host=' . $server . ';dbname=' . $dbname;
+	
 	$options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 	
-	$link = new PDO($dsn, $username, $password, $options);
+        $link = new PDO($dsn, $username, $password, $options);
 
+	$sql = "SELECT * FROM Users;";
+        $stmt = $link->prepare($sql);
+        $stmt->execute();
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt->closeCursor();
 
-	$db = $link->prepare('SELECT User FROM Users WHERE User = "' . $_POST['user']. '";');
-	$db->execute();
-	$db->setFetchMode(PDO::FETCH_ASSOC);
-
-       	
-
-	$rows_found = $db->rowCount();
-	
-	$db->closeCursor();         
-	$pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-
-	echo $rows_found;
+	foreach($users as $u){
+		echo 'hello world';
+	}
 	}
 	catch (PDOException $e){
 		echo $e;
