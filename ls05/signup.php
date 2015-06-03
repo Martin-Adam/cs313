@@ -89,6 +89,9 @@ if(isset($_POST['submit'])){
         	
 		header('Location: signin.php');
 	}
+	else {
+		echo $message;
+	}
 	
 	}
 	catch (PDOException $e){
