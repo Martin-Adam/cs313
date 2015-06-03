@@ -21,6 +21,7 @@ echo 'bye';
 if(isset($_POST['submit'])){
 	echo 'hi';
 	try{
+	echo 'test';
 	$server = getenv('OPENSHIFT_MYSQL_DB_HOST');
 	$dbname = 'store_db';
 	$username = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
