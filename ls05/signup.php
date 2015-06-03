@@ -29,7 +29,7 @@ if(isset($_POST['submit'])){
 
 	$pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 
-	$query = $db->query('SELECT Users WHERE User = ' . $_POST['user']);
+	$query = $db->query('SELECT User FROM Users WHERE User = "' . $_POST['user']. '";');
 
   	if($query)
 	{
