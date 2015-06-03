@@ -43,7 +43,7 @@ session_start();
 <body>
 <h1>Sign Up</h1>
 <form action="" method="post">
-<a href="phpDataBase.php">Product Page</a>
+<a href="phpDataBase.php">Product Page</a><a href="signin.php">Sign In</a>
 <br>
 Username: <input type="text" name="user">
 <br>
