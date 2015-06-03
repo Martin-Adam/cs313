@@ -30,7 +30,7 @@ if(isset($_POST['submit'])){
 	
         $link = new PDO($dsn, $username, $password, $options);
 
-	$sql = "SELECT * FROM Users;";
+	$sql = 'SELECT User FROM Users WHERE User = "'.$_POST['user'].'"';
         $stmt = $link->prepare($sql);
         $stmt->execute();
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
