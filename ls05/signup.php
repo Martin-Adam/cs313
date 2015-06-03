@@ -17,7 +17,9 @@ Password:<input type="password" name="pass">
 </form>
 
 <?php
+echo 'bye';
 if(isset($_POST['submit'])){
+	echo 'hi';
 	try{
 	$server = getenv('OPENSHIFT_MYSQL_DB_HOST');
 	$dbname = 'store_db';
