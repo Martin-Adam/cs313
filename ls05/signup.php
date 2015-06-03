@@ -50,7 +50,6 @@ if(isset($_POST['submit'])){
 		$stmt = $link->prepare($sql);
 		$stmt->bindParam(':name', $_POST['user']);
 		$stmt->bindParam(':pass', $_POST['pass']);
-        	$stmt = $link->prepare($sql);
         	$stmt->execute();
         	$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         	$stmt->closeCursor();
