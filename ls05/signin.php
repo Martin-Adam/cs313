@@ -24,7 +24,7 @@ session_start();
 ?>
 <form action="" method="post">
   <a href="phpDataBase.php">Product Page</a>
-  <a href="signin.php">Sign In</a>
+  <a href="signup.php">Sign Up</a>
   <br>
   Data can only be 12 characters long:<br>
   Username: <input type="text" name="user" maxlength="12">
@@ -47,23 +47,29 @@ session_start();
         if(isset($_POST['user']) && isset($_POST['pass']) && isset($_POST['submit'])){
         $link = new PDO($dsn, $username, $password, $options);
         
-        $sql = "SELECT * FROM Users;";
-        $stmt = $link->prepare($sql);
-        $stmt->execute();
-        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $stmt->closeCursor();
-        
-        $message = "";
-        foreach($users as $u){
-         if($_POST['user'] == $u['User'] && $_POST['pass'] == $u['Pass']){
-         
-         	$_SESSION["userl"] = $u['User'];
-         	$_SESSION["userid"] = $u['User_ID'];
-		$_SESSION["num"] = 1;
-         	$message ='<p style="color:white;">Welcome Back ' . $_SESSION["userl"] . '</p>';
-         	break;
-         }
+	$stmt = $db->prepare('SELECT `User_name`, `Password` FROM `user` WHERE `User_name` = :name');
+	$stmt->bindParam(':name', $_POST['user']);
+	$stmt->execute();
+       	$user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+       	$stmt->closeCursor();
+	
+	
+	foreach($user as $u){
+		if (password_verify($_POST['pass'], $u['Password'])){
+			$_SESSION['user'] = $_POST['user'];
+			$_SESSION["userid"] = $u['User_ID'];
+			$_SESSION["num"] = 1;
+			header('Location: phpDataBase.php');
+		}
+		else {
+			echo 'Wrong Username or Password';
+		}
+	}	
         }
+        else {
+        	echo 'Please enter a valid username and password';
+        }
+        
     } catch (Exception $ex) {
         echo '<p style="color:white;">Couldnt connect to Database try again later</p>';
     }
