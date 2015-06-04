@@ -84,10 +84,11 @@ if(isset($_POST['submit'])){
 	}
 	
 	if($message == ""){
+		$pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 		$sql = "INSERT INTO `Users`(`User`, `Pass`) VALUES (:name,:pass);";
         	$stmt = $link->prepare($sql);
          	$stmt->bindParam(':name', $_POST['user']);
-		$stmt->bindParam(':pass', $_POST['pass']);
+		$stmt->bindParam(':pass', $pass);
          	$stmt->execute();
          	$stmt->closeCursor();
         	
