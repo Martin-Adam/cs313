@@ -5,7 +5,7 @@
         <style>
         body{
 			background-image: url(http://i.imgur.com/48wh8Ab.jpg);
-			color: black;
+			color: white;
 			no-repeat center center fixed; 
 			-webkit-background-size: cover;
 			-moz-background-size: cover;
@@ -47,7 +47,7 @@ session_start();
         if(isset($_POST['user']) && isset($_POST['pass']) && isset($_POST['submit'])){
         $link = new PDO($dsn, $username, $password, $options);
         
-	$stmt = $db->prepare('SELECT `User_name`, `Password` FROM `user` WHERE `User_name` = :name');
+	$stmt = $db->prepare('SELECT `User`, `Pass` FROM `Users` WHERE `User` = :name');
 	$stmt->bindParam(':name', $_POST['user']);
 	$stmt->execute();
        	$user = $stmt->fetchAll(PDO::FETCH_ASSOC);
