@@ -25,7 +25,7 @@ Password:<input type="password" name="pass">
 	
 	$pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 	
-	$stmt = $db->prepare('INSERT INTO `user`(`User_name`, `Password`) VALUES (:name,:pass)');
+	$stmt = $db->prepare('INSERT INTO `user`(`User_name`, `Password`) VALUES (:name,:pass);');
 	$stmt->bindParam(':name', $_POST['user']);
    	$stmt->bindParam(':pass', $pass);
 	$stmt->execute();
