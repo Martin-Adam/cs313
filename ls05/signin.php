@@ -48,7 +48,7 @@ session_start();
         
         $link = new PDO($dsn, $username, $password, $options);
         
-	$stmt = $link->prepare("SELECT `User_ID`, `User`, `Pass` FROM `Users` WHERE 'User' = '".$_POST['user']."';");
+	$stmt = $link->prepare("SELECT `User_ID`, `User`, `Pass` FROM `Users` WHERE `User` = '".$_POST['user']."';");
 	$stmt->execute();
        	$user = $stmt->fetchAll(PDO::FETCH_ASSOC);
        	$stmt->closeCursor();
