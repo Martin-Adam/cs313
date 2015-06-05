@@ -55,6 +55,7 @@ session_start();
 	
 	
 	foreach($user as $u){
+		require 'password.php';
 		if (password_verify($_POST['pass'], $u['Password'])){
 			$_SESSION['user'] = $_POST['user'];
 			$_SESSION["userid"] = $u['User_ID'];
