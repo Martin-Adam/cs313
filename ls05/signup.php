@@ -92,7 +92,7 @@ if(isset($_POST['submit']) && isset($_POST['user']) && isset($_POST['pass'])){
 		$stmt->bindParam(':pass', $pass);
          	$stmt->execute();
          	$stmt->closeCursor();
-        	
+        	echo 'hi3';
 		header('Location: signin.php');
 	}
 	else {
