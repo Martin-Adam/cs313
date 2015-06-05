@@ -47,14 +47,14 @@ session_start();
         if(isset($_POST['user']) && isset($_POST['pass']) && isset($_POST['submit'])){
         $link = new PDO($dsn, $username, $password, $options);
         
-	$stmt = $db->prepare('SELECT `User`, `Pass` FROM `Users` WHERE `User` = :name');
-	$stmt->bindParam(':name', $_POST['user']);
+	$stmt = $db->prepare("SELECT `User`, `Pass` FROM `Users` WHERE `User` = '".$_POST['user']."'");
 	$stmt->execute();
        	$user = $stmt->fetchAll(PDO::FETCH_ASSOC);
        	$stmt->closeCursor();
 	
-	
+	echo 'hi1';
 	foreach($user as $u){
+		echo 'hi2';
 		require 'password.php';
 		if (password_verify($_POST['pass'], $u['Password'])){
 			$_SESSION['user'] = $_POST['user'];
