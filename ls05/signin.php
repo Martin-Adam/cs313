@@ -47,7 +47,7 @@ session_start();
         if(isset($_POST['user']) && isset($_POST['pass']) && isset($_POST['submit'])){
         echo 'hi';
         $link = new PDO($dsn, $username, $password, $options);
-        
+        echo 'llamas';
 	$stmt = $db->prepare("SELECT `User_ID`, `User`, `Pass` FROM `Users`;");
 	$stmt->execute();
        	$user = $stmt->fetchAll(PDO::FETCH_ASSOC);
