@@ -85,6 +85,7 @@ if(isset($_POST['submit']) && isset($_POST['user']) && isset($_POST['pass'])){
 	
 	if($message == ""){
 		echo 'hi2';
+		require 'password.php';
 		$pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 		echo 'hi3';
 		$sql = "INSERT INTO `Users`(`User`, `Pass`) VALUES ('" . $_POST['user'] . "','" .$pass. "');";
