@@ -22,7 +22,6 @@
 
 <?php
     session_start();
-	echo $_SESSION['user']. $_SESSION["userid"].$_SESSION["num"];
 
     $server = getenv('OPENSHIFT_MYSQL_DB_HOST');
     $dbname = 'store_db';
@@ -35,6 +34,14 @@
     try {
         $link = new PDO($dsn, $username, $password, $options);
         if(isset($_SESSION["user"])){
+        	if ($_SESSION["num"] == 1){
+        	$sql = "SELECT * FROM Images;";
+        	$stmt = $link->prepare($sql);
+        	$stmt->execute();
+        	$images = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        	$stmt->closeCursor();
+        	}
+        	else {
         	$sql = 'SELECT Images.* '
         	.'FROM Images '
         	. 'INNER JOIN Bought_items '
@@ -45,6 +52,7 @@
         	$stmt->execute();
         	$images = $stmt->fetchAll(PDO::FETCH_ASSOC);
         	$stmt->closeCursor();
+        	}
 
         	echo '<p align="right" style="color:white;">Hello, '.$_SESSION['user']
         	. '<br><button type="button" onclick="logout()">Logout</button></p>';
@@ -102,8 +110,6 @@
 ?> 
 <script>
 function logout(){
-	alert('hi');
-	
 	location.reload();
 	}
 </script>
