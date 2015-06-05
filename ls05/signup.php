@@ -57,7 +57,7 @@ Password:<input type="password" name="pass">
 </form>
 
 <?php
-if(isset($_POST['submit'])){
+if(isset($_POST['submit']) && isset($_POST['user']) && isset($_POST['pass'])){
 	try {
 	$server = getenv('OPENSHIFT_MYSQL_DB_HOST');
 	$dbname = 'store_db';
@@ -74,7 +74,7 @@ if(isset($_POST['submit'])){
         $stmt->execute();
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
-	
+	echo 'hi';
 	$message = "";
 	foreach($users as $u){
 		if($u['User'] == $_POST['user'])
@@ -82,8 +82,9 @@ if(isset($_POST['submit'])){
 			$message = 'Username is taken.';
 		}
 	}
-	
+	echo 'hi1';
 	if($message == ""){
+		echo 'hi2';
 		$pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 		$sql = "INSERT INTO `Users`(`User`, `Pass`) VALUES (:name,:pass);";
         	$stmt = $link->prepare($sql);
