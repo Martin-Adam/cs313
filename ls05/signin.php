@@ -56,8 +56,8 @@ session_start();
 	foreach($user as $u){
 		echo 'hi2';
 		require 'password.php';
-		if (password_verify($_POST['pass'], $u['Password'])){
-			$_SESSION['user'] = $_POST['user'];
+		if (password_verify($_POST['pass'], $u['Pass'])){
+			$_SESSION['user'] = $_POST['User'];
 			$_SESSION["userid"] = $u['User_ID'];
 			$_SESSION["num"] = 1;
 			header('Location: phpDataBase.php');
