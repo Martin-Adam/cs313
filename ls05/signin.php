@@ -48,7 +48,7 @@ session_start();
         echo 'hi';
         $link = new PDO($dsn, $username, $password, $options);
         
-	$stmt = $db->prepare("SELECT * FROM `Users`");
+	$stmt = $db->prepare("SELECT `User_ID`, `User`, `Pass` FROM `Users`;");
 	$stmt->execute();
        	$user = $stmt->fetchAll(PDO::FETCH_ASSOC);
        	$stmt->closeCursor();
