@@ -22,6 +22,7 @@
 
 <?php
     session_start();
+	echo $_SESSION['user']. $_SESSION["userid"].$_SESSION["num"];
 
     $server = getenv('OPENSHIFT_MYSQL_DB_HOST');
     $dbname = 'store_db';
@@ -45,7 +46,7 @@
         	$images = $stmt->fetchAll(PDO::FETCH_ASSOC);
         	$stmt->closeCursor();
 
-        	echo '<p align="right" style="color:white;">Hello, '.$_SESSION['userl']
+        	echo '<p align="right" style="color:white;">Hello, '.$_SESSION['user']
         	. '<br><button type="button" onclick="logout()">Logout</button></p>';
         }
         else {
@@ -74,7 +75,7 @@
             . '<input type="checkbox" name="pokemon[]" value="'.$i['images_id'].'"></td>';
         }
         echo '</tr><tr><td><input type="submit" name="submit" value="Buy Now"></td></tr></table></form>';
-        if(isset($_POST["submit"]) && isset($_SESSION["userl"])){
+        if(isset($_POST["submit"]) && isset($_SESSION["user"])){
         $pokemon = $_POST['pokemon']; 
         if(!empty($pokemon)){
 		$n = count($pokemon);
