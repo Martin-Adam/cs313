@@ -96,7 +96,10 @@
         		$stmt->execute();
         	       	$stmt->closeCursor();
 
-        		echo($pokemon[$i] . " ");
+        		$_SESSION["num"] = 2;
+        		
+			header('Location: phpDataBase.php');
+
         	}
         }	
         
