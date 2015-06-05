@@ -89,7 +89,7 @@
 		$n = count($pokemon);
         	for($i=0; $i < $n; $i++)
         	{
-        		$sql = "INSERT INTO `Bought_items`(`images_id`, `User_ID`, `Price`) VALUES (:pid,:id);";
+        		$sql = "INSERT INTO `Bought_items`(`images_id`, `User_ID`) VALUES (:pid,:id);";
 	        	$stmt = $link->prepare($sql);
 	        	$stmt->bindParam(':pid', $pokemon[$i]);
 	        	$stmt->bindParam(':id', $_SESSION["userid"]);
