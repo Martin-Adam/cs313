@@ -86,10 +86,8 @@ if(isset($_POST['submit']) && isset($_POST['user']) && isset($_POST['pass'])){
 	if($message == ""){
 		echo 'hi2';
 		$pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-		$sql = "INSERT INTO `Users`(`User`, `Pass`) VALUES (':name',':pass');";
+		$sql = "INSERT INTO `Users`(`User`, `Pass`) VALUES ('".$_POST['user']."','".$pass."');";
         	$stmt = $link->prepare($sql);
-         	$stmt->bindParam(':name', $_POST['user']);
-		$stmt->bindParam(':pass', $pass);
          	$stmt->execute();
          	$stmt->closeCursor();
         	echo 'hi3';
