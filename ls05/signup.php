@@ -86,11 +86,12 @@ if(isset($_POST['submit']) && isset($_POST['user']) && isset($_POST['pass'])){
 	if($message == ""){
 		echo 'hi2';
 		$pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-		$sql = "INSERT INTO `Users`(`User`, `Pass`) VALUES ('".$_POST['user']."','".$pass."');";
+		echo 'hi3';
+		$sql = "INSERT INTO `Users`(`User`, `Pass`) VALUES ('" . $_POST['user'] . "','" .$pass. "');";
         	$stmt = $link->prepare($sql);
          	$stmt->execute();
          	$stmt->closeCursor();
-        	echo 'hi3';
+        	echo 'hi4';
 		header('Location: signin.php');
 	}
 	else {
