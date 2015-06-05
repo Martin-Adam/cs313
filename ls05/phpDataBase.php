@@ -54,7 +54,8 @@
         	$stmt->execute();
         	$images = $stmt->fetchAll(PDO::FETCH_ASSOC);
         	$stmt->closeCursor();
-        	echo '<p align="right" style="color:white;"><a href="signin.php">Sign in/Create Account</a></p>';
+        	echo '<p align="right" style="color:white;"><a href="signin.php">Sign in</a>'
+        	.'<br><a href="signup.php">Sign up</a></p>';
         }
         echo '<h1 style="color:white;">Buy your Plushies here!</h1>';
         
