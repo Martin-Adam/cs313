@@ -61,7 +61,8 @@ session_start();
 			$_SESSION['user'] = $_POST['User'];
 			$_SESSION["userid"] = $u['User_ID'];
 			$_SESSION["num"] = 1;
-			header('Location: phpDataBase.php');
+			echo $_SESSION['user'];
+			//header('Location: phpDataBase.php');
 		}
 		else {
 			echo 'Wrong Username or Password';
