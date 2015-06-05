@@ -74,7 +74,7 @@ if(isset($_POST['submit']) && isset($_POST['user']) && isset($_POST['pass'])){
         $stmt->execute();
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
-	echo 'hi';
+	
 	$message = "";
 	foreach($users as $u){
 		if($u['User'] == $_POST['user'])
@@ -82,7 +82,7 @@ if(isset($_POST['submit']) && isset($_POST['user']) && isset($_POST['pass'])){
 			$message = 'Username is taken.';
 		}
 	}
-	echo 'hi1';
+	
 	if($message == ""){
 		echo 'hi2';
 		$pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
