@@ -33,7 +33,7 @@
     
     try {
         $link = new PDO($dsn, $username, $password, $options);
-        if(isset($_SESSION["userl"])){
+        if(isset($_SESSION["user"])){
         	$sql = 'SELECT Images.* '
         	.'FROM Images '
         	. 'INNER JOIN Bought_items '
