@@ -53,23 +53,20 @@ session_start();
        	$user = $stmt->fetchAll(PDO::FETCH_ASSOC);
        	$stmt->closeCursor();
 	
-	echo 'hi1';
 	foreach($user as $u){
-		echo 'hi2';
 		require 'password.php';
 		if (password_verify($_POST['pass'], $u['Pass'])){
-			$_SESSION['user'] = $_POST['User'];
+			$_SESSION['user'] = $_POST['user'];
 			$_SESSION["userid"] = $u['User_ID'];
 			$_SESSION["num"] = 1;
-			echo $_SESSION['user'];
-			//header('Location: phpDataBase.php');
+			header('Location: phpDataBase.php');
 		}
 		else {
 			echo 'Wrong Username or Password';
 		}
 	}	
         }
-        else {
+        else if (isset($_POST['submit'])){
         	echo 'Please enter a valid username and password';
         }
         
