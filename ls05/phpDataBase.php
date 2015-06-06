@@ -16,6 +16,29 @@
 	tr {
 	    background-color:rgba(255,255,255,0.3);
 	}
+	h1 {
+		color:white;
+	}
+	/* unvisited link */
+	a:link {
+    		color: white;
+	}
+	/* visited link */
+	a:visited {
+    		color: blue;
+	}
+	/* mouse over link */
+	a:hover {
+    		color: red;
+	}
+	/* selected link */
+	a:active {
+    		color: green;
+	}
+	a{
+		padding: 10px;
+	}
+
         </style>
     </head>
 <body> 
@@ -34,25 +57,17 @@
     try {
         $link = new PDO($dsn, $username, $password, $options);
         if(isset($_SESSION["user"])){
-        	if ($_SESSION["num"] == 1){
-        	$sql = "SELECT * FROM Images;";
-        	$stmt = $link->prepare($sql);
-        	$stmt->execute();
-        	$images = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        	$stmt->closeCursor();
-        	}
-        	else {
-        	$sql = 'SELECT Images.* '
-        	.'FROM Images '
-        	. 'INNER JOIN Bought_items '
-        	. 'INNER JOIN Users ON Users.User_ID = Bought_items.User_ID '
-        	. 'WHERE  Bought_items.images_id != Images.images_id AND Bought_items.User_ID = :id;';
+        	$sql = "SELECT i.images_id, name, image FROM Images i "
+		."INNER JOIN Bought_items b "
+		."ON i.images_id = b.images_id "
+		."WHERE b.User_ID = ".$_SESSION['userid']." "
+		."AND b.bought != 1;";
         	$stmt = $link->prepare($sql);
         	$stmt->bindParam(':id', $_SESSION["userid"]);
         	$stmt->execute();
         	$images = $stmt->fetchAll(PDO::FETCH_ASSOC);
         	$stmt->closeCursor();
-        	}
+        	
 
         	echo '<p align="right" style="color:white;">Hello, '.$_SESSION['user']
         	. '<br><form action="" method="post" align="right">'
