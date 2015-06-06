@@ -101,7 +101,7 @@ if(isset($_POST['submit']) && isset($_POST['user']) && isset($_POST['pass'])){
 			$usid = $u['User_ID'];
 		}
 
-		for($i = 1; i <= 6; i++){
+		for($i = 1; $i <= 6; $i++){
 			$sql = "INSERT INTO `Bought_items`(`images_id`, `User_ID`, `bought`) VALUES (".$i.",".$usid.",0);";
         		$stmt = $link->prepare($sql);
          		$stmt->execute();
