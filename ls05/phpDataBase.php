@@ -55,7 +55,7 @@
         	}
 
         	echo '<p align="right" style="color:white;">Hello, '.$_SESSION['user']
-        	. '<br><button type="button" onclick="logout()">Logout</button></p>';
+        	. '<br><form action="" method="post"><input type="submit" value="Logout" name="logout"></form></p>';
         }
         else {
         	$sql = "SELECT * FROM Images;";
@@ -110,11 +110,15 @@
     } catch (Exception $ex) {
         echo "Fail".$ex;
     }
-?> 
-<script>
-function logout(){
-	location.reload();
-	}
-</script>
+    
+    if (isset($_POST["submit"])){
+    	// remove all session variables
+	session_unset(); 
+
+	// destroy the session 
+	session_destroy(); 
+
+    }
+?>
 </body>
 </html>
