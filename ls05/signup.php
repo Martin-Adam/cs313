@@ -90,7 +90,24 @@ if(isset($_POST['submit']) && isset($_POST['user']) && isset($_POST['pass'])){
         	$stmt = $link->prepare($sql);
          	$stmt->execute();
          	$stmt->closeCursor();
-         	$_SESSION["num"] = 1;
+		
+		$stmt = $link->prepare("SELECT `User_ID`, `User`, `Pass` FROM `Users` WHERE `User` = '".$_POST['user']."';");
+		$stmt->execute();
+       		$user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+       		$stmt->closeCursor();
+
+		$usid = "";	
+		foreach($user as $u){
+			$usid = $u['User_ID'];
+		}
+
+		for($i = 1; i <= 6; i++){
+			$sql = "INSERT INTO `Bought_items`(`images_id`, `User_ID`, `bought`) VALUES (".$i.",".$usid.",0);";
+        		$stmt = $link->prepare($sql);
+         		$stmt->execute();
+         		$stmt->closeCursor();
+		}
+
 		header('Location: signin.php');
 	}
 	else {
