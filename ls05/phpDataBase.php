@@ -118,7 +118,7 @@
 
 	// destroy the session 
 	session_destroy(); 
-
+	header('Location: phpDataBase.php');
     }
 ?>
 </body>
