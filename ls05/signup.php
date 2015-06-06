@@ -90,6 +90,7 @@ if(isset($_POST['submit']) && isset($_POST['user']) && isset($_POST['pass'])){
         	$stmt = $link->prepare($sql);
          	$stmt->execute();
          	$stmt->closeCursor();
+         	$_SESSION["num"] = 1;
 		header('Location: signin.php');
 	}
 	else {
