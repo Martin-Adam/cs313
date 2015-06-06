@@ -70,8 +70,10 @@
         	
 
         	echo '<p align="right" style="color:white;">Hello, '.$_SESSION['user']
-        	. '<br><form action="" method="post" align="right">'
-        	. '<input type="submit" value="Logout" name="logout" align="right"></form></p>';
+        	'. '<br><form action="" method="post" align="right">'
+        	. '<input type="submit" value="Logout" name="logout" align="right"></form>'
+        	. '. '<br><form action="" method="post" align="right">'
+        	. '<input type="submit" value="Reset Items" name="reset" align="right"></form></p>';
         }
         else {
         	$sql = "SELECT * FROM Images;";
@@ -131,6 +133,13 @@
 	// destroy the session 
 	session_destroy(); 
 	header('Location: phpDataBase.php');
+    }
+    if (isset($_POST["reset"])){
+    	$sql = "UPDATE `Bought_items` SET `bought`=0 WHERE `User_ID`= " . $_SESSION['userid'];
+	$stmt = $link->prepare($sql);
+        $stmt->execute();
+        $stmt->closeCursor();
+    	header('Location: phpDataBase.php');
     }
 ?>
 </body>
