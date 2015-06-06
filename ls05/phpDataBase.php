@@ -36,7 +36,6 @@
     		color: green;
 	}
 	a{
-		padding: 10px;
 		background-color:rgba(255,255,255,0.3);
 	}
 
