@@ -13,9 +13,6 @@
 			background-size: cover;
 			text-align: center;
 	}
-	form {
-		background-color:rgba(255,255,255,0.3);
-	}
 	tr {
 	    background-color:rgba(255,255,255,0.3);
 	}
@@ -40,6 +37,7 @@
 	}
 	a{
 		padding: 10px;
+		background-color:rgba(255,255,255,0.3);
 	}
 
         </style>
