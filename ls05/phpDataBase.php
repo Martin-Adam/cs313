@@ -105,14 +105,11 @@
 		$n = count($pokemon);
         	for($i=0; $i < $n; $i++)
         	{
-        		$sql = "INSERT INTO `Bought_items`(`images_id`, `User_ID`) VALUES (:pid,:id);";
+        		$sql = "UPDATE `Bought_items` SET `bought`=1 "
+        		."WHERE `User_ID`= ".$_SESSION["userid"]." AND `images_id` = ".$pokemon[$i].";";
 	        	$stmt = $link->prepare($sql);
-	        	$stmt->bindParam(':pid', $pokemon[$i]);
-	        	$stmt->bindParam(':id', $_SESSION["userid"]);
         		$stmt->execute();
         	       	$stmt->closeCursor();
-
-        		$_SESSION["num"] = 2;
         		
 			header('Location: phpDataBase.php');
 
