@@ -58,7 +58,6 @@ session_start();
 		if (password_verify($_POST['pass'], $u['Pass'])){
 			$_SESSION['user'] = $_POST['user'];
 			$_SESSION["userid"] = $u['User_ID'];
-			$_SESSION["num"] = 1;
 			header('Location: phpDataBase.php');
 		}
 		else {
