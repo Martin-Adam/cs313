@@ -70,9 +70,9 @@
         	
 
         	echo '<p align="right" style="color:white;">Hello, '.$_SESSION['user']
-        	'. '<br><form action="" method="post" align="right">'
+        	. '<br><form action="" method="post" align="right">'
         	. '<input type="submit" value="Logout" name="logout" align="right"></form>'
-        	. '. '<br><form action="" method="post" align="right">'
+        	. '<br><form action="" method="post" align="right">'
         	. '<input type="submit" value="Reset Items" name="reset" align="right"></form></p>';
         }
         else {
