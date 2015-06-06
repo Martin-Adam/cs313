@@ -55,7 +55,8 @@
         	}
 
         	echo '<p align="right" style="color:white;">Hello, '.$_SESSION['user']
-        	. '<br><form action="" method="post"><input type="submit" value="Logout" name="logout"></form></p>';
+        	. '<br><form action="" method="post" align="right">'
+        	. '<input type="submit" value="Logout" name="logout" align="right"></form></p>';
         }
         else {
         	$sql = "SELECT * FROM Images;";
@@ -111,7 +112,7 @@
         echo "Fail".$ex;
     }
     
-    if (isset($_POST["submit"])){
+    if (isset($_POST["logout"])){
     	// remove all session variables
 	session_unset(); 
 
