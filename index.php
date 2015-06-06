@@ -110,7 +110,7 @@
 				<br>
 				<a href="ls05/phpDataBase.php">PHP Database Modification</a>
 				<br>
-				<a href="ls06/phpDataBase.php">Individual PHP Project</a>
+				<a href="ls05/phpDataBase.php">Individual PHP Project</a>
 				</p>
 				<br>
 				<p>The main reason I got this working is thanks to this site:
